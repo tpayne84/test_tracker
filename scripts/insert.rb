@@ -1,3 +1,5 @@
+require 'csv'
+
 CSV.foreach("./boots.csv") do |row|
 	students = User.all
 	clients = Client.all
