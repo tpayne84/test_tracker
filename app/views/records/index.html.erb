@@ -11,10 +11,11 @@
     <thead>
       <tr>
 
+        <th>Client</th>
         <th>User</th>
         <th>Course</th>
         <th>Score</th>
-        <th>Pass</th>
+        <th>Pass / Fail</th>
         <th>Completed Date</th>
         <th>Requal Date</th>
         <th>Show</th>
@@ -25,10 +26,15 @@
 
     <tbody>
       <%= content_tag_for(:tr, @records) do |record| %>
+            <td><%= record.user.client.name %></td>
             <td><%= record.user.full_name %></td>
             <td><%= get_course_name(record.course_id) %></td>
             <td><%= record.score %></td>
-            <td><%= record.pass %></td>
+            <% if record.pass == true %>
+            <td style="color:green;">Passed</td>
+            <% else %>
+            <td style="color:red;">Failed</td>
+            <% end %>
             <td><%= record.completed_date %></td>
             <td><%= record.requal_date %></td>
 

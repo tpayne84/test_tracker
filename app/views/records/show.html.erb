@@ -11,6 +11,9 @@
 </div>
 
 <dl class="dl-horizontal">
+   <dt>Client:</dt>
+  <dd><%= @record.user.client.name %></dd>
+
    <dt>User:</dt>
   <dd><%= @record.user.full_name %></dd>
 
@@ -27,6 +30,10 @@
   <dd><%= @record.score %></dd>
 
   <dt>Pass:</dt>
-  <dd><%= @record.pass %></dd>
+  <% if @record.pass == true %>
+   <dd style="color:green;">Passed</dd>
+  <% else %>
+    <dd style="color:red;">Failed</dd>
+  <% end %>
   
 </dl>
