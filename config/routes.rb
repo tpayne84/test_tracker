@@ -6,7 +6,8 @@ Flatstrap::Application.routes.draw do
   resources :courses
 
   resources :users
-  
+
+  resources :activity_report  
   resources :status_report
   
   resources :records

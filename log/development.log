@@ -11277,3 +11277,713 @@ Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-02 14:37:44 -0500
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-02 14:37:44 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-02 14:45:09 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mClient Load (4.3ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered users/index.html.erb within layouts/application (72.9ms)
+  Rendered shared/_meta.html.erb (0.3ms)
+  Rendered shared/_stylesheets.html.erb (167.2ms)
+  Rendered shared/_shiv.html.erb (8.9ms)
+  Rendered shared/_nav.html.erb (9.8ms)
+Completed 500 Internal Server Error in 298ms
+
+ActionView::Template::Error (undefined local variable or method `tatus_report_index_path' for #<#<Class:0x007fb157059910>:0x007fb157058ab0>):
+    25:               <ul class="dropdown-menu">
+    26:                 <li><%= link_to "Activity", root_path %></li>
+    27:                 <li class="divider"></li>
+    28:                 <li><%= link_to "Status", tatus_report_index_path %></li>
+    29:               </ul>
+    30:           </li>
+    31:         </ul>
+  app/views/shared/_nav.html.erb:28:in `_app_views_shared__nav_html_erb___1421194245461101799_70199823873300'
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb___1016587598804273638_70199823061040'
+
+
+  Rendered /Users/travispayne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/travispayne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/travispayne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-02 14:45:10 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mClient Load (0.5ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered users/index.html.erb within layouts/application (4.3ms)
+  Rendered shared/_meta.html.erb (0.3ms)
+  Rendered shared/_stylesheets.html.erb (10.5ms)
+  Rendered shared/_shiv.html.erb (1.3ms)
+  Rendered shared/_nav.html.erb (11.0ms)
+Completed 500 Internal Server Error in 34ms
+
+ActionView::Template::Error (undefined local variable or method `tatus_report_index_path' for #<#<Class:0x007fb157059910>:0x007fb153ecf390>):
+    25:               <ul class="dropdown-menu">
+    26:                 <li><%= link_to "Activity", root_path %></li>
+    27:                 <li class="divider"></li>
+    28:                 <li><%= link_to "Status", tatus_report_index_path %></li>
+    29:               </ul>
+    30:           </li>
+    31:         </ul>
+  app/views/shared/_nav.html.erb:28:in `_app_views_shared__nav_html_erb___1421194245461101799_70199797299800'
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb___1016587598804273638_70199823061040'
+
+
+  Rendered /Users/travispayne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/travispayne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/travispayne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mClient Load (0.5ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered users/index.html.erb within layouts/application (3.5ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (9.2ms)
+  Rendered shared/_shiv.html.erb (0.8ms)
+  Rendered shared/_nav.html.erb (1.1ms)
+  Rendered shared/_alerts.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/bootstrap-variables.css?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/application.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/html5shiv.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/jquery.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/flatstrap/flatstrap.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/activity_report.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/records.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/static.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/status_report.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-02 14:45:19 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-02 14:45:45 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mClient Load (0.6ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered users/index.html.erb within layouts/application (3.7ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (9.2ms)
+  Rendered shared/_shiv.html.erb (1.0ms)
+  Rendered shared/_nav.html.erb (15.1ms)
+Completed 500 Internal Server Error in 35ms
+
+ActionView::Template::Error (undefined local variable or method `activity_report_index_path' for #<#<Class:0x007fb157059910>:0x007fb15614c0a8>):
+    23:           <li id="fat-menu" class="dropdown">
+    24:               <a href="#" class="dropdown-toggle" data-toggle="dropdown">View Reports<b class="caret"></b></a>
+    25:               <ul class="dropdown-menu">
+    26:                 <li><%= link_to "Activity", activity_report_index_path %></li>
+    27:                 <li class="divider"></li>
+    28:                 <li><%= link_to "Status", status_report_index_path %></li>
+    29:               </ul>
+  app/views/shared/_nav.html.erb:26:in `_app_views_shared__nav_html_erb___1421194245461101799_70199822897600'
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb___1016587598804273638_70199823061040'
+
+
+  Rendered /Users/travispayne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/travispayne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/travispayne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mClient Load (0.7ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered users/index.html.erb within layouts/application (40.7ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (9.2ms)
+  Rendered shared/_shiv.html.erb (0.7ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+  Rendered shared/_alerts.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 64ms (Views: 50.9ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/assets/bootstrap-variables.css?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/application.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/html5shiv.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/jquery.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/flatstrap/flatstrap.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/activity_report.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/records.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/static.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/status_report.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:06 -0500
+
+
+Started GET "/activity_report" for 127.0.0.1 at 2013-10-02 14:46:37 -0500
+Processing by ActivityReportController#index as HTML
+  Rendered activity_report/index.html.erb within layouts/application (1.0ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (8.9ms)
+  Rendered shared/_shiv.html.erb (0.8ms)
+  Rendered shared/_nav.html.erb (1.1ms)
+  Rendered shared/_alerts.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/activity_report" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+Processing by ActivityReportController#index as HTML
+  Rendered activity_report/index.html.erb within layouts/application (1.2ms)
+  Rendered shared/_meta.html.erb (0.1ms)
+  Rendered shared/_stylesheets.html.erb (9.4ms)
+  Rendered shared/_shiv.html.erb (0.8ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+  Rendered shared/_alerts.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/bootstrap-variables.css?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/application.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/html5shiv.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/jquery.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/activity_report.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/flatstrap/flatstrap.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/records.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/static.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/status_report.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-02 14:46:39 -0500
+
+
+Started GET "/status_report" for 127.0.0.1 at 2013-10-02 14:46:49 -0500
+Processing by StatusReportController#index as HTML
+  [1m[35mRecord Load (0.5ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (1.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered status_report/index.html.erb within layouts/application (50.5ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (46.0ms)
+  Rendered shared/_shiv.html.erb (0.8ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+  Rendered shared/_alerts.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 109ms (Views: 95.5ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/status_report" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+Processing by StatusReportController#index as HTML
+  [1m[36mRecord Load (0.5ms)[0m  [1mSELECT "records".* FROM "records"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered status_report/index.html.erb within layouts/application (7.1ms)
+  Rendered shared/_meta.html.erb (0.1ms)
+  Rendered shared/_stylesheets.html.erb (9.1ms)
+  Rendered shared/_shiv.html.erb (0.7ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+  Rendered shared/_alerts.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/bootstrap-variables.css?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/application.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/html5shiv.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/jquery.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/flatstrap/flatstrap.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/activity_report.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/records.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/static.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/status_report.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-02 14:47:28 -0500
+
+
+Started GET "/status_report" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+Processing by StatusReportController#index as HTML
+  [1m[35mRecord Load (0.5ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered status_report/index.html.erb within layouts/application (5.0ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (9.0ms)
+  Rendered shared/_shiv.html.erb (0.8ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+  Rendered shared/_alerts.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/application.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/bootstrap-variables.css?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/activity_report.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/flatstrap.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/html5shiv.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/flatstrap/jquery.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/records.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/static.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/assets/status_report.js?body=1" for 127.0.0.1 at 2013-10-02 14:48:07 -0500
+
+
+Started GET "/activity_report" for 127.0.0.1 at 2013-10-02 14:48:09 -0500
+Processing by ActivityReportController#index as HTML
+  Rendered activity_report/index.html.erb within layouts/application (1.2ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (9.1ms)
+  Rendered shared/_shiv.html.erb (0.8ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+  Rendered shared/_alerts.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 19ms (Views: 18.8ms | ActiveRecord: 0.0ms)
