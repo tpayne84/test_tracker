@@ -1,0 +1,45 @@
+<div class="page-header">
+  <%= link_to new_record_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Record
+  <% end %>
+  <h1>Status Report</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Client</th>
+        <th>User</th>
+        <th>Course</th>
+        <th>Score</th>
+        <th>Pass / Fail</th>
+        <th>Completed Date</th>
+        <th>Requal Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @records) do |record| %>
+            <% if record.pass == true && record.requal_date > Date.today %>
+              <td style="color:green;"><b>Good</b></td>
+            <% else %>
+              <td style="color:red;"><b>Bad</b></td>
+            <% end %>
+            <td><%= record.user.client.name %></td>
+            <td><%= record.user.full_name %></td>
+            <td><%= get_course_name(record.course_id) %></td>
+            <td><%= record.score %></td>
+            <% if record.pass == true %>
+              <td style="color:green;">Passed</td>
+            <% else %>
+              <td style="color:red;">Failed</td>
+            <% end %>
+            <td><%= record.completed_date %></td>
+            <td><%= record.requal_date %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
