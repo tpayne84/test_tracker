@@ -6,10 +6,10 @@ Flatstrap::Application.routes.draw do
   resources :courses
 
   resources :users
-
-  resources :records do
-    resources :report
-  end
+  
+  resources :status_report
+  
+  resources :records
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
