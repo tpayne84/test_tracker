@@ -11,6 +11,7 @@ gem 'heroku'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+gem 'twitter-bootstrap-rails', '~> 2.2.8'
 
 # Use bootstrap generators
 gem 'bootstrap-generators', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
