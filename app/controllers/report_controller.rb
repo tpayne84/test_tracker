@@ -21,6 +21,7 @@ class ReportController < ApplicationController
 
   def status
   end
- 
- params.require(:record).permit(:course_id, :score, :pass, :completed_date, :user_id, :requal_date)
+  def report_params
+    params.require(:record).permit(:course_id, :score, :pass, :completed_date, :user_id, :requal_date)
+  end
 end
