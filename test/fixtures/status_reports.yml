@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_name: MyString
+  course_name: MyString
+  date_taken: 2013-10-01
+  requal_date: 2013-10-01
+  status: false
+
+two:
+  user_name: MyString
+  course_name: MyString
+  date_taken: 2013-10-01
+  requal_date: 2013-10-01
+  status: false

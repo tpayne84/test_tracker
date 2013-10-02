@@ -1,0 +1,2 @@
+class StatusReportController < ApplicationController
+end
