@@ -18845,3 +18845,1377 @@ Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-03 09:19:39 -0500
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-03 09:19:39 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGroups (20131003142937)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (7.2ms)[0m  [1mCREATE TABLE "groups" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131003142937"]]
+  [1m[36m (45.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddGroupIdToUser (20131003143018)
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "users" ADD COLUMN "group_id" integer[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131003143018"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (5050.9ms)[0m  [1mDROP DATABASE IF EXISTS "test_tracker"[0m
+PG::Error: ERROR:  database "test_tracker" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "test_tracker"
+  [1m[35m (0.4ms)[0m  CREATE DATABASE "test_tracker" ENCODING = 'utf8'
+PG::Error: ERROR:  database "test_tracker" already exists
+: CREATE DATABASE "test_tracker" ENCODING = 'utf8'
+  [1m[36mSQL (1.8ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.5ms)[0m  DROP TABLE "activity_reports"
+  [1m[36m (44.8ms)[0m  [1mCREATE TABLE "activity_reports" ("id" serial primary key, "user_name" character varying(255), "course_name" character varying(255), "score" integer, "pass_fail" boolean, "date_taken" date, "requal_date" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.3ms)[0m  DROP TABLE "clients"
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "clients" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.3ms)[0m  DROP TABLE "courses"
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "courses" ("id" serial primary key, "name" character varying(255), "requal_interval" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.9ms)[0m  DROP TABLE "groups"
+  [1m[36m (6.9ms)[0m  [1mCREATE TABLE "groups" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.1ms)[0m  DROP TABLE "records"
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "records" ("id" serial primary key, "course_id" integer, "score" integer, "pass" boolean, "completed_date" date, "requal_date" date, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (4.2ms)[0m  DROP TABLE "status_reports"
+  [1m[36m (9.1ms)[0m  [1mCREATE TABLE "status_reports" ("id" serial primary key, "user_name" character varying(255), "course_name" character varying(255), "date_taken" date, "requal_date" date, "status" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (4.1ms)[0m  DROP TABLE "users"
+  [1m[36m (8.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying(255), "last_name" character varying(255), "client_id" integer, "created_at" timestamp, "updated_at" timestamp, "group_id" integer) [0m
+  [1m[35m (0.7ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (5.6ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Abrasive Blasting"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Aerial Lifts"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Asbestos Awareness"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "GFCI"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Behavior Based Safety"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Benzene Awareness"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Bloodborne Pathogens"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Confined Space / Permit Confined Space"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Cranes"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Disciplinary Program"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Driving Safety"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Electrical Safety Awareness"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Fall Protection"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Fatigue Management"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Fire Protection / Extinguishers"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "First Aid"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Forklift & Industrial Trucks"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Gas Hazards"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "General Waste Management"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Hand AND/OR Power Tools"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Hazard Communication - (HAZCOM)"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Hazard Identification & Risk Assessment"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Hazardous Waste Operations / Emergency Response"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Hydrogen Sulfide - H2S"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "In Plant Rail Safety"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Incident Investigation and Reporting"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Ladder Safety"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Lead"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Lead Awareness"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Lockout / Tagout"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Manual Lifting"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Mobile Equipment"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00], ["name", "Natural Occurring Radioactive Material - (NORM)"], ["updated_at", Thu, 03 Oct 2013 14:32:19 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Noise Awareness"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Noise Exposure / Hearing Conservation"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Personal Protective Equipment / Assessments - (PPE)"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Respiratory Protection"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Rigging Material Handling"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Scaffolds"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Short Service Employee (SSE)"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Spill Prevention / Response"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Stop Work Authority"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Subcontractor Management Plan"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Trenching / Shoring / Excavations"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Welding - Cutting - Hot Work"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Working Alone"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "clients" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00], ["name", "Boots Smith Oilfield Services LLC"], ["updated_at", Thu, 03 Oct 2013 14:32:20 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (5049.9ms)[0m  [1mDROP DATABASE IF EXISTS "test_tracker"[0m
+PG::Error: ERROR:  database "test_tracker" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "test_tracker"
+  [1m[35m (0.4ms)[0m  CREATE DATABASE "test_tracker" ENCODING = 'utf8'
+PG::Error: ERROR:  database "test_tracker" already exists
+: CREATE DATABASE "test_tracker" ENCODING = 'utf8'
+  [1m[36mSQL (1.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.4ms)[0m  DROP TABLE "activity_reports"
+  [1m[36m (9.8ms)[0m  [1mCREATE TABLE "activity_reports" ("id" serial primary key, "user_name" character varying(255), "course_name" character varying(255), "score" integer, "pass_fail" boolean, "date_taken" date, "requal_date" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "clients"
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "clients" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.5ms)[0m  DROP TABLE "courses"
+  [1m[36m (6.1ms)[0m  [1mCREATE TABLE "courses" ("id" serial primary key, "name" character varying(255), "requal_interval" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.0ms)[0m  DROP TABLE "groups"
+  [1m[36m (6.3ms)[0m  [1mCREATE TABLE "groups" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.0ms)[0m  DROP TABLE "records"
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "records" ("id" serial primary key, "course_id" integer, "score" integer, "pass" boolean, "completed_date" date, "requal_date" date, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (4.7ms)[0m  DROP TABLE "status_reports"
+  [1m[36m (8.2ms)[0m  [1mCREATE TABLE "status_reports" ("id" serial primary key, "user_name" character varying(255), "course_name" character varying(255), "date_taken" date, "requal_date" date, "status" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.9ms)[0m  DROP TABLE "users"
+  [1m[36m (8.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying(255), "last_name" character varying(255), "client_id" integer, "created_at" timestamp, "updated_at" timestamp, "group_id" integer) [0m
+  [1m[35m (0.9ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (5052.1ms)[0m  [1mDROP DATABASE IF EXISTS "test_tracker"[0m
+PG::Error: ERROR:  database "test_tracker" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "test_tracker"
+  [1m[35m (0.4ms)[0m  CREATE DATABASE "test_tracker" ENCODING = 'utf8'
+PG::Error: ERROR:  database "test_tracker" already exists
+: CREATE DATABASE "test_tracker" ENCODING = 'utf8'
+  [1m[36mSQL (1.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (49.8ms)[0m  DROP TABLE "activity_reports"
+  [1m[36m (11.7ms)[0m  [1mCREATE TABLE "activity_reports" ("id" serial primary key, "user_name" character varying(255), "course_name" character varying(255), "score" integer, "pass_fail" boolean, "date_taken" date, "requal_date" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "clients"
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "clients" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.0ms)[0m  DROP TABLE "courses"
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "courses" ("id" serial primary key, "name" character varying(255), "requal_interval" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "groups"
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "groups" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.6ms)[0m  DROP TABLE "records"
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "records" ("id" serial primary key, "course_id" integer, "score" integer, "pass" boolean, "completed_date" date, "requal_date" date, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (4.1ms)[0m  DROP TABLE "status_reports"
+  [1m[36m (9.3ms)[0m  [1mCREATE TABLE "status_reports" ("id" serial primary key, "user_name" character varying(255), "course_name" character varying(255), "date_taken" date, "requal_date" date, "status" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (4.0ms)[0m  DROP TABLE "users"
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying(255), "last_name" character varying(255), "client_id" integer, "created_at" timestamp, "updated_at" timestamp, "group_id" integer) [0m
+  [1m[35m (0.9ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (3.8ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Abrasive Blasting"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Aerial Lifts"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Asbestos Awareness"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "GFCI"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Behavior Based Safety"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Benzene Awareness"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Bloodborne Pathogens"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Confined Space / Permit Confined Space"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Cranes"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Disciplinary Program"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Driving Safety"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Electrical Safety Awareness"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Fall Protection"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Fatigue Management"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Fire Protection / Extinguishers"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "First Aid"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Forklift & Industrial Trucks"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Gas Hazards"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "General Waste Management"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Hand AND/OR Power Tools"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Hazard Communication - (HAZCOM)"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Hazard Identification & Risk Assessment"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Hazardous Waste Operations / Emergency Response"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Hydrogen Sulfide - H2S"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "In Plant Rail Safety"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Incident Investigation and Reporting"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Ladder Safety"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Lead"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Lead Awareness"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Lockout / Tagout"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Manual Lifting"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Mobile Equipment"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Natural Occurring Radioactive Material - (NORM)"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Noise Awareness"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Noise Exposure / Hearing Conservation"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Personal Protective Equipment / Assessments - (PPE)"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Respiratory Protection"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Rigging Material Handling"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Scaffolds"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Short Service Employee (SSE)"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Spill Prevention / Response"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Stop Work Authority"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Subcontractor Management Plan"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (1.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Trenching / Shoring / Excavations"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Welding - Cutting - Hot Work"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "courses" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Working Alone"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "clients" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Boots Smith Oilfield Services LLC"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "groups" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Pipeline"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "groups" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00], ["name", "Construction"], ["updated_at", Thu, 03 Oct 2013 14:36:37 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "users" ("client_id", "created_at", "first_name", "group_id", "last_name", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["client_id", 1], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["first_name", "Boots"], ["group_id", 1], ["last_name", "Smith"], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 13 Apr 2009], ["course_id", 1], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 13 Apr 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Mon, 23 Mar 2009], ["course_id", 2], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 23 Mar 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 23 Mar 2009], ["course_id", 3], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 23 Mar 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Mon, 18 May 2009], ["course_id", 4], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 18 May 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Wed, 23 Mar 2011], ["course_id", 5], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Fri, 23 Mar 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Mon, 11 May 2009], ["course_id", 6], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 11 May 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 02 Mar 2009], ["course_id", 7], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 02 Mar 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Mon, 25 May 2009], ["course_id", 8], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 25 May 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 04 May 2009], ["course_id", 9], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 04 May 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Sun, 03 Mar 2013], ["course_id", 10], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Mon, 03 Mar 2014], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Tue, 11 May 2010], ["course_id", 11], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Wed, 11 May 2011], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Mon, 09 Mar 2009], ["course_id", 12], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 09 Mar 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 16 Mar 2009], ["course_id", 13], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 16 Mar 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Wed, 13 Apr 2011], ["course_id", 14], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Fri, 13 Apr 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 02 Mar 2009], ["course_id", 15], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 02 Mar 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Sun, 07 Jun 2009], ["course_id", 16], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Mon, 07 Jun 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Wed, 16 Mar 2011], ["course_id", 17], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Fri, 16 Mar 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Sat, 16 Apr 2011], ["course_id", 18], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Mon, 16 Apr 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Wed, 20 Apr 2011], ["course_id", 19], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Fri, 20 Apr 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Mon, 09 Mar 2009], ["course_id", 20], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 09 Mar 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 26 Jan 2009], ["course_id", 21], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 26 Jan 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Wed, 18 May 2011], ["course_id", 22], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Fri, 18 May 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Sat, 14 May 2011], ["course_id", 23], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Mon, 14 May 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Sun, 07 Jun 2009], ["course_id", 24], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Mon, 07 Jun 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Wed, 27 Apr 2011], ["course_id", 25], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Fri, 27 Apr 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Wed, 30 Mar 2011], ["course_id", 26], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Fri, 30 Mar 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 12 Jan 2009], ["course_id", 27], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 12 Jan 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Mon, 19 Jan 2009], ["course_id", 28], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 19 Jan 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Fri, 19 Jan 2001], ["course_id", 29], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Sat, 19 Jan 2002], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Sun, 14 Jun 2009], ["course_id", 30], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Mon, 14 Jun 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Fri, 30 Mar 2001], ["course_id", 31], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Sat, 30 Mar 2002], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Wed, 18 May 2011], ["course_id", 32], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Fri, 18 May 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Wed, 30 Mar 2011], ["course_id", 33], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Fri, 30 Mar 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Mon, 14 Jun 2010], ["course_id", 34], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 14 Jun 2011], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 30 Mar 2009], ["course_id", 35], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 30 Mar 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Mon, 27 Apr 2009], ["course_id", 36], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 27 Apr 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 18 May 2009], ["course_id", 37], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 18 May 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Mon, 20 Apr 2009], ["course_id", 38], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 20 Apr 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 06 Apr 2009], ["course_id", 39], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 06 Apr 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Wed, 12 Jan 2011], ["course_id", 40], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Thu, 12 Jan 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Tue, 07 Jun 2011], ["course_id", 41], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Thu, 07 Jun 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Wed, 26 Jan 2011], ["course_id", 42], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Thu, 26 Jan 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Wed, 18 May 2011], ["course_id", 43], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Fri, 18 May 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Mon, 16 Mar 2009], ["course_id", 44], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 16 Mar 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["completed_date", Mon, 11 May 2009], ["course_id", 45], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Tue, 11 May 2010], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "records" ("completed_date", "course_id", "created_at", "pass", "requal_date", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["completed_date", Wed, 09 Mar 2011], ["course_id", 46], ["created_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["pass", true], ["requal_date", Fri, 09 Mar 2012], ["score", 100], ["updated_at", Thu, 03 Oct 2013 14:36:38 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/status_report" for 127.0.0.1 at 2013-10-03 09:37:55 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StatusReportController#index as HTML
+  [1m[35mRecord Load (1.0ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mUser Load (4.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mClient Load (0.9ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mGroup Load (0.9ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (1.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.6ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 19]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 24]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 26]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 28]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 31]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 32]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 33]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 34]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 35]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 36]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 37]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 38]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 39]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 40]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 41]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 42]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 43]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 44]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 45]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 46]]
+  Rendered status_report/index.html.erb within layouts/application (355.8ms)
+  Rendered shared/_meta.html.erb (0.4ms)
+  Rendered shared/_stylesheets.html.erb (186.0ms)
+  Rendered shared/_shiv.html.erb (8.9ms)
+  Rendered shared/_nav.html.erb (1.0ms)
+  Rendered shared/_alerts.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 619ms (Views: 525.8ms | ActiveRecord: 41.9ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2013-10-03 09:43:18 -0500
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.8ms)[0m  [1mSELECT "records".* FROM "records"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mClient Load (0.4ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mGroup Load (0.4ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.6ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 21]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 22]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 24]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 25]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 26]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 28]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 29]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 30]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 31]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 32]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 33]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 34]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 35]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 36]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 37]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 38]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 39]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 40]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 41]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 42]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 43]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.6ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 44]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 45]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 46]]
+  Rendered records/index.html.erb within layouts/application (305.9ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (8.8ms)
+  Rendered shared/_shiv.html.erb (0.7ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+  Rendered shared/_alerts.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 323ms (Views: 300.7ms | ActiveRecord: 21.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-10-03 09:43:22 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mClient Load (0.6ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mGroup Load (0.5ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered users/index.html.erb within layouts/application (7.1ms)
+  Rendered shared/_meta.html.erb (0.4ms)
+  Rendered shared/_stylesheets.html.erb (12.9ms)
+  Rendered shared/_shiv.html.erb (1.2ms)
+  Rendered shared/_nav.html.erb (1.1ms)
+  Rendered shared/_alerts.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/bootstrap-variables.css?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/application.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/html5shiv.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/flatstrap.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/flatstrap/jquery.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/activity_report.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/records.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/static.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/status_report.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:23 -0500
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-10-03 09:43:26 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mGroup Load (0.5ms)[0m  SELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mClient Load (0.4ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (3.8ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (9.0ms)
+  Rendered shared/_shiv.html.erb (0.8ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+  Rendered shared/_alerts.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 23ms (Views: 19.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2013-10-03 09:43:29 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mClient Load (0.9ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients"
+  Rendered users/_form.html.erb (55.8ms)
+  Rendered users/edit.html.erb within layouts/application (57.7ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (9.0ms)
+  Rendered shared/_shiv.html.erb (0.8ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+  Rendered shared/_alerts.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 76ms (Views: 73.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mGroup Load (0.5ms)[0m  SELECT "groups".* FROM "groups"
+  [1m[36mClient Load (0.3ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  Rendered users/_form.html.erb (6.5ms)
+  Rendered users/edit.html.erb within layouts/application (8.3ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (9.2ms)
+  Rendered shared/_shiv.html.erb (0.8ms)
+  Rendered shared/_nav.html.erb (0.6ms)
+  Rendered shared/_alerts.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/bootstrap-variables.css?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/application.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/html5shiv.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/jquery.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/flatstrap/flatstrap.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/activity_report.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/records.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/static.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/status_report.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-03 09:43:53 -0500
+
+
+Started GET "/records" for 127.0.0.1 at 2013-10-03 09:43:59 -0500
+Processing by RecordsController#index as HTML
+  [1m[35mRecord Load (0.8ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mClient Load (0.4ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mGroup Load (0.4ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.6ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 19]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 24]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 26]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 28]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 31]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 32]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 33]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 34]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 35]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 36]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 37]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 38]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 39]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 40]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 41]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 42]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 43]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 44]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 45]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = $1 ORDER BY "clients"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 ORDER BY "groups"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT 1  [["id", 46]]
+  Rendered records/index.html.erb within layouts/application (259.3ms)
+  Rendered shared/_meta.html.erb (0.0ms)
+  Rendered shared/_stylesheets.html.erb (10.1ms)
+  Rendered shared/_shiv.html.erb (1.0ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+  Rendered shared/_alerts.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 278ms (Views: 256.7ms | ActiveRecord: 20.6ms)

@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131001113655) do
+ActiveRecord::Schema.define(version: 20131003143018) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "activity_reports", force: true do |t|
     t.string   "user_name"
@@ -33,6 +36,12 @@ ActiveRecord::Schema.define(version: 20131001113655) do
   create_table "courses", force: true do |t|
     t.string   "name"
     t.integer  "requal_interval"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,6 +73,7 @@ ActiveRecord::Schema.define(version: 20131001113655) do
     t.integer  "client_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
   end
 
 end

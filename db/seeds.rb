@@ -55,7 +55,10 @@ Course.create(name: "Working Alone")
 
 Client.create(name: "Boots Smith Oilfield Services LLC")
 
-User.create(first_name: "Boots", last_name: "Smith", client_id: 1)
+Group.create(name: "Pipeline")
+Group.create(name: "Construction")
+
+User.create(first_name: "Boots", last_name: "Smith", client_id: 1, group_id: 1)
 
 Record.create(course_id: 1, user_id: 1, pass: true, score: 100, completed_date: '2009/04/13', requal_date: '2010/04/13')
 Record.create(course_id: 2, user_id: 1, pass: true, score: 100, completed_date: '2009/03/23', requal_date: '2010/03/23')

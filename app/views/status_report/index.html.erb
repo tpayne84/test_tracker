@@ -13,6 +13,7 @@
         <th>Status</th>
         <th>Client</th>
         <th>User</th>
+        <th>Group</th>
         <th>Course</th>
         <th>Score</th>
         <th>Pass / Fail</th>
@@ -30,6 +31,7 @@
             <% end %>
             <td><%= record.user.client.name %></td>
             <td><%= record.user.full_name %></td>
+            <td><%= record.user.group.name %></td>
             <td><%= get_course_name(record.course_id) %></td>
             <td><%= record.score %></td>
             <% if record.pass == true %>
