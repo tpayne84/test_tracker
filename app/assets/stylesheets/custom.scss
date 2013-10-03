@@ -1,2 +1,54 @@
 @import "bootstrap-variables";
 @import "../../../vendor/assets/stylesheets/flatstrap/bootstrap.scss";
+
+tbody tr:nth-child(odd) {
+   background-color: #B7C3D0;
+}
+tbody tr:nth-child(even) {
+   background-color: #75A1D0;
+   color: white;
+}
+
+th {
+background-color: #006ccc;
+color: white;
+}
+
+.dash-header{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	width: 95%;
+}
+
+.dash-content{
+margin-left: auto;
+margin-right: auto;
+
+width: 95%;
+}
+
+.dash-block {
+	max-height: 400px;
+	overflow: scroll;
+
+	-moz-box-shadow: 0 0 5px 5px #888;
+	-webkit-box-shadow: 0 0 5px 5px#888;
+	box-shadow: 0 0 5px 5px #888;
+}
+
+.low-alert {
+	background-color: yellow;
+	border: 1px solid black;
+}
+
+.mid-alert {
+	background-color: orange;
+	border: 1px solid black;
+}
+
+.high-alert {
+	background-color: red;
+	border: 1px solid black;
+}

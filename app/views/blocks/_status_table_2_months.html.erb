@@ -1,0 +1,20 @@
+<table class="table dash-content">
+  <thead>
+    <tr>
+      <th>Expiration</th>
+      <th>User</th>
+      <th>Client</th>
+      <th>Evaluation</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @two_month_report.each do |data| %>
+    <tr>
+      <td><%= data.requal_date %></td>
+      <td><%= data.user.full_name %></td>
+      <td><%= data.user.client.name %></td>
+      <td><%= @course_name = course_name(data.course_id) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
