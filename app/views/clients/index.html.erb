@@ -1,9 +1,9 @@
 <div class="page-header">
   <%= link_to new_client_path, :class => 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Client
+    New Company
   <% end %>
-  <h1>Listing clients</h1>
+  <h1>Listing Companies</h1>
 </div>
 
 <div class="table-responsive">
@@ -22,7 +22,7 @@
             <td><%= client.name %></td>
             <td><%= link_to 'Show', client %></td>
         <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
   </table>

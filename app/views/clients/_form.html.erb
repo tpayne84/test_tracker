@@ -2,7 +2,7 @@
   <% if @client.errors.any? %>
     <div class="alert alert-danger alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h4>
+      <h4><%= pluralize(@client.errors.count, "error") %> prohibited this Company from being saved:</h4>
 
       <ul>
       <% @client.errors.full_messages.each do |msg| %>
