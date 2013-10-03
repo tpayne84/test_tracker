@@ -10,13 +10,11 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <th>Status</th>
         <th>User</th>
         <th>Client</th>
         <th>Group</th>
         <th>Course</th>
-        <th>Score</th>
-        <th>Pass / Fail</th>
+        <th>Status</th>
         <th>Completed Date</th>
         <th>Requal Date</th>
       </tr>
@@ -24,20 +22,14 @@
 
     <tbody>
       <%= content_tag_for(:tr, @records) do |record| %>
-            <% if record.pass == true && record.requal_date > Date.today %>
-              <td style="color:green;"><b>Qualified</b></td>
-            <% else %>
-              <td style="color:red;"><b>Not Qualified</b></td>
-            <% end %>
             <td><%= record.user.full_name %></td>
             <td><%= record.user.client.name %></td>
             <td><%= record.user.group.name %></td>
             <td><%= get_course_name(record.course_id) %></td>
-            <td><%= record.score %></td>
-            <% if record.pass == true %>
-              <td style="color:green;">Passed</td>
+            <% if record.pass == true && record.requal_date > Date.today %>
+              <td style="color:green;"><b>Qualified</b></td>
             <% else %>
-              <td style="color:red;">Failed</td>
+              <td style="color:red;"><b>Not Qualified</b></td>
             <% end %>
             <td><%= record.completed_date %></td>
             <td><%= record.requal_date %></td>
