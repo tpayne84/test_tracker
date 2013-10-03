@@ -2,18 +2,11 @@ Flatstrap::Application.routes.draw do
   root 'users#index'
 
   resources :clients
-
   resources :courses
-
-
-resources :static
-
-
+  resources :groups
   resources :users
-
   resources :activity_report  
   resources :status_report
-  
   resources :records
 
   # The priority is based upon order of creation: first created -> highest priority.
