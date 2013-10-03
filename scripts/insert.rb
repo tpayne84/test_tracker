@@ -27,4 +27,5 @@ CSV.foreach("./boots.csv") do |row|
 
 
 	Record.create(:course_id => c.id, :score => values[7].to_i,:pass => p, :date_completed => dc, :user_id => u.id)
+
 end

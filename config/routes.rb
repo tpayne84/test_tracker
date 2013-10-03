@@ -5,6 +5,10 @@ Flatstrap::Application.routes.draw do
 
   resources :courses
 
+
+resources :static
+
+
   resources :users
 
   resources :activity_report  
