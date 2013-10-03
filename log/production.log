@@ -1,0 +1,102 @@
+I, [2013-10-03T10:09:26.893065 #10946]  INFO -- : Started GET "/records" for 127.0.0.1 at 2013-10-03 10:09:26 -0500
+I, [2013-10-03T10:09:26.915881 #10946]  INFO -- : Processing by RecordsController#index as HTML
+I, [2013-10-03T10:09:27.187824 #10946]  INFO -- :   Rendered records/index.html.erb within layouts/application (247.8ms)
+I, [2013-10-03T10:09:27.189796 #10946]  INFO -- :   Rendered shared/_meta.html.erb (0.3ms)
+I, [2013-10-03T10:09:37.048910 #10946]  INFO -- :   Rendered shared/_stylesheets.html.erb (9858.1ms)
+I, [2013-10-03T10:09:37.330286 #10946]  INFO -- :   Rendered shared/_shiv.html.erb (279.8ms)
+I, [2013-10-03T10:09:37.333665 #10946]  INFO -- :   Rendered shared/_nav.html.erb (2.0ms)
+I, [2013-10-03T10:09:37.336066 #10946]  INFO -- :   Rendered shared/_alerts.html.erb (1.0ms)
+I, [2013-10-03T10:09:37.337909 #10946]  INFO -- :   Rendered shared/_footer.html.erb (0.5ms)
+I, [2013-10-03T10:09:37.338680 #10946]  INFO -- : Completed 200 OK in 10423ms (Views: 10353.5ms | ActiveRecord: 47.0ms)
+I, [2013-10-03T10:09:37.359177 #10946]  INFO -- : Started GET "/records" for 127.0.0.1 at 2013-10-03 10:09:37 -0500
+I, [2013-10-03T10:09:37.362307 #10946]  INFO -- : Processing by RecordsController#index as HTML
+I, [2013-10-03T10:09:37.536935 #10946]  INFO -- :   Rendered records/index.html.erb within layouts/application (171.8ms)
+I, [2013-10-03T10:09:37.538326 #10946]  INFO -- :   Rendered shared/_meta.html.erb (0.4ms)
+I, [2013-10-03T10:09:37.541449 #10946]  INFO -- :   Rendered shared/_stylesheets.html.erb (2.1ms)
+I, [2013-10-03T10:09:37.543025 #10946]  INFO -- :   Rendered shared/_shiv.html.erb (0.7ms)
+I, [2013-10-03T10:09:37.545020 #10946]  INFO -- :   Rendered shared/_nav.html.erb (1.2ms)
+I, [2013-10-03T10:09:37.546680 #10946]  INFO -- :   Rendered shared/_alerts.html.erb (0.6ms)
+I, [2013-10-03T10:09:37.548083 #10946]  INFO -- :   Rendered shared/_footer.html.erb (0.3ms)
+I, [2013-10-03T10:09:37.548452 #10946]  INFO -- : Completed 200 OK in 186ms (Views: 159.3ms | ActiveRecord: 25.5ms)
+I, [2013-10-03T10:09:37.688318 #10946]  INFO -- : Started GET "/assets/application-4047fded764a26870982ceee9c995f03.css" for 127.0.0.1 at 2013-10-03 10:09:37 -0500
+I, [2013-10-03T10:09:37.706030 #10946]  INFO -- : Started GET "/assets/application-e0f9478528075fb8f2f92bcd21dd0578.js" for 127.0.0.1 at 2013-10-03 10:09:37 -0500
+I, [2013-10-03T10:09:55.559765 #10946]  INFO -- : Started GET "/status_report" for 127.0.0.1 at 2013-10-03 10:09:55 -0500
+I, [2013-10-03T10:09:55.561905 #10946]  INFO -- : Processing by StatusReportController#index as HTML
+I, [2013-10-03T10:09:55.703503 #10946]  INFO -- :   Rendered status_report/index.html.erb within layouts/application (138.7ms)
+I, [2013-10-03T10:09:55.703833 #10946]  INFO -- :   Rendered shared/_meta.html.erb (0.0ms)
+I, [2013-10-03T10:09:55.705328 #10946]  INFO -- :   Rendered shared/_stylesheets.html.erb (1.3ms)
+I, [2013-10-03T10:09:55.705731 #10946]  INFO -- :   Rendered shared/_shiv.html.erb (0.2ms)
+I, [2013-10-03T10:09:55.706515 #10946]  INFO -- :   Rendered shared/_nav.html.erb (0.6ms)
+I, [2013-10-03T10:09:55.706756 #10946]  INFO -- :   Rendered shared/_alerts.html.erb (0.1ms)
+I, [2013-10-03T10:09:55.706984 #10946]  INFO -- :   Rendered shared/_footer.html.erb (0.0ms)
+I, [2013-10-03T10:09:55.707266 #10946]  INFO -- : Completed 200 OK in 145ms (Views: 124.1ms | ActiveRecord: 20.1ms)
+I, [2013-10-03T10:10:12.298541 #10946]  INFO -- : Started GET "/records" for 127.0.0.1 at 2013-10-03 10:10:12 -0500
+I, [2013-10-03T10:10:12.299929 #10946]  INFO -- : Processing by RecordsController#index as HTML
+I, [2013-10-03T10:10:12.431164 #10946]  INFO -- :   Rendered records/index.html.erb within layouts/application (130.1ms)
+I, [2013-10-03T10:10:12.431450 #10946]  INFO -- :   Rendered shared/_meta.html.erb (0.0ms)
+I, [2013-10-03T10:10:12.432810 #10946]  INFO -- :   Rendered shared/_stylesheets.html.erb (1.2ms)
+I, [2013-10-03T10:10:12.433195 #10946]  INFO -- :   Rendered shared/_shiv.html.erb (0.2ms)
+I, [2013-10-03T10:10:12.433874 #10946]  INFO -- :   Rendered shared/_nav.html.erb (0.5ms)
+I, [2013-10-03T10:10:12.434119 #10946]  INFO -- :   Rendered shared/_alerts.html.erb (0.1ms)
+I, [2013-10-03T10:10:12.434373 #10946]  INFO -- :   Rendered shared/_footer.html.erb (0.1ms)
+I, [2013-10-03T10:10:12.434602 #10946]  INFO -- : Completed 200 OK in 135ms (Views: 113.6ms | ActiveRecord: 20.3ms)
+I, [2013-10-03T10:10:14.922154 #10946]  INFO -- : Started GET "/records" for 127.0.0.1 at 2013-10-03 10:10:14 -0500
+I, [2013-10-03T10:10:14.923169 #10946]  INFO -- : Processing by RecordsController#index as HTML
+I, [2013-10-03T10:10:15.088981 #10946]  INFO -- :   Rendered records/index.html.erb within layouts/application (164.8ms)
+I, [2013-10-03T10:10:15.089243 #10946]  INFO -- :   Rendered shared/_meta.html.erb (0.0ms)
+I, [2013-10-03T10:10:15.090464 #10946]  INFO -- :   Rendered shared/_stylesheets.html.erb (1.1ms)
+I, [2013-10-03T10:10:15.090800 #10946]  INFO -- :   Rendered shared/_shiv.html.erb (0.2ms)
+I, [2013-10-03T10:10:15.091412 #10946]  INFO -- :   Rendered shared/_nav.html.erb (0.5ms)
+I, [2013-10-03T10:10:15.091628 #10946]  INFO -- :   Rendered shared/_alerts.html.erb (0.1ms)
+I, [2013-10-03T10:10:15.091823 #10946]  INFO -- :   Rendered shared/_footer.html.erb (0.0ms)
+I, [2013-10-03T10:10:15.092026 #10946]  INFO -- : Completed 200 OK in 169ms (Views: 147.2ms | ActiveRecord: 21.0ms)
+I, [2013-10-03T10:10:17.448017 #10946]  INFO -- : Started GET "/status_report" for 127.0.0.1 at 2013-10-03 10:10:17 -0500
+I, [2013-10-03T10:10:17.450054 #10946]  INFO -- : Processing by StatusReportController#index as HTML
+I, [2013-10-03T10:10:17.581183 #10946]  INFO -- :   Rendered status_report/index.html.erb within layouts/application (130.1ms)
+I, [2013-10-03T10:10:17.581457 #10946]  INFO -- :   Rendered shared/_meta.html.erb (0.0ms)
+I, [2013-10-03T10:10:17.582748 #10946]  INFO -- :   Rendered shared/_stylesheets.html.erb (1.1ms)
+I, [2013-10-03T10:10:17.583081 #10946]  INFO -- :   Rendered shared/_shiv.html.erb (0.2ms)
+I, [2013-10-03T10:10:17.583725 #10946]  INFO -- :   Rendered shared/_nav.html.erb (0.5ms)
+I, [2013-10-03T10:10:17.583986 #10946]  INFO -- :   Rendered shared/_alerts.html.erb (0.1ms)
+I, [2013-10-03T10:10:17.584183 #10946]  INFO -- :   Rendered shared/_footer.html.erb (0.0ms)
+I, [2013-10-03T10:10:17.584401 #10946]  INFO -- : Completed 200 OK in 134ms (Views: 112.4ms | ActiveRecord: 21.3ms)
+I, [2013-10-03T10:10:19.879047 #10946]  INFO -- : Started GET "/records" for 127.0.0.1 at 2013-10-03 10:10:19 -0500
+I, [2013-10-03T10:10:19.880713 #10946]  INFO -- : Processing by RecordsController#index as HTML
+I, [2013-10-03T10:10:20.046354 #10946]  INFO -- :   Rendered records/index.html.erb within layouts/application (164.4ms)
+I, [2013-10-03T10:10:20.046717 #10946]  INFO -- :   Rendered shared/_meta.html.erb (0.1ms)
+I, [2013-10-03T10:10:20.048310 #10946]  INFO -- :   Rendered shared/_stylesheets.html.erb (1.3ms)
+I, [2013-10-03T10:10:20.048745 #10946]  INFO -- :   Rendered shared/_shiv.html.erb (0.2ms)
+I, [2013-10-03T10:10:20.049467 #10946]  INFO -- :   Rendered shared/_nav.html.erb (0.5ms)
+I, [2013-10-03T10:10:20.049719 #10946]  INFO -- :   Rendered shared/_alerts.html.erb (0.1ms)
+I, [2013-10-03T10:10:20.049974 #10946]  INFO -- :   Rendered shared/_footer.html.erb (0.0ms)
+I, [2013-10-03T10:10:20.050231 #10946]  INFO -- : Completed 200 OK in 169ms (Views: 147.0ms | ActiveRecord: 21.6ms)
+I, [2013-10-03T10:10:21.478888 #10946]  INFO -- : Started GET "/" for 127.0.0.1 at 2013-10-03 10:10:21 -0500
+I, [2013-10-03T10:10:21.481389 #10946]  INFO -- : Processing by UsersController#index as HTML
+I, [2013-10-03T10:10:21.489942 #10946]  INFO -- :   Rendered users/index.html.erb within layouts/application (5.3ms)
+I, [2013-10-03T10:10:21.490360 #10946]  INFO -- :   Rendered shared/_meta.html.erb (0.0ms)
+I, [2013-10-03T10:10:21.491731 #10946]  INFO -- :   Rendered shared/_stylesheets.html.erb (1.2ms)
+I, [2013-10-03T10:10:21.492102 #10946]  INFO -- :   Rendered shared/_shiv.html.erb (0.2ms)
+I, [2013-10-03T10:10:21.492848 #10946]  INFO -- :   Rendered shared/_nav.html.erb (0.5ms)
+I, [2013-10-03T10:10:21.493110 #10946]  INFO -- :   Rendered shared/_alerts.html.erb (0.1ms)
+I, [2013-10-03T10:10:21.493356 #10946]  INFO -- :   Rendered shared/_footer.html.erb (0.0ms)
+I, [2013-10-03T10:10:21.493687 #10946]  INFO -- : Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 1.2ms)
+I, [2013-10-03T10:10:36.322586 #10946]  INFO -- : Started GET "/" for 127.0.0.1 at 2013-10-03 10:10:36 -0500
+I, [2013-10-03T10:10:36.325018 #10946]  INFO -- : Processing by UsersController#index as HTML
+I, [2013-10-03T10:10:36.329952 #10946]  INFO -- :   Rendered users/index.html.erb within layouts/application (3.7ms)
+I, [2013-10-03T10:10:36.330223 #10946]  INFO -- :   Rendered shared/_meta.html.erb (0.0ms)
+I, [2013-10-03T10:10:36.331478 #10946]  INFO -- :   Rendered shared/_stylesheets.html.erb (1.1ms)
+I, [2013-10-03T10:10:36.331819 #10946]  INFO -- :   Rendered shared/_shiv.html.erb (0.2ms)
+I, [2013-10-03T10:10:36.332445 #10946]  INFO -- :   Rendered shared/_nav.html.erb (0.5ms)
+I, [2013-10-03T10:10:36.332678 #10946]  INFO -- :   Rendered shared/_alerts.html.erb (0.1ms)
+I, [2013-10-03T10:10:36.332853 #10946]  INFO -- :   Rendered shared/_footer.html.erb (0.0ms)
+I, [2013-10-03T10:10:36.333066 #10946]  INFO -- : Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.2ms)
+I, [2013-10-03T10:10:52.024523 #10946]  INFO -- : Started GET "/records" for 127.0.0.1 at 2013-10-03 10:10:52 -0500
+I, [2013-10-03T10:10:52.025584 #10946]  INFO -- : Processing by RecordsController#index as HTML
+I, [2013-10-03T10:10:52.160554 #10946]  INFO -- :   Rendered records/index.html.erb within layouts/application (133.8ms)
+I, [2013-10-03T10:10:52.160967 #10946]  INFO -- :   Rendered shared/_meta.html.erb (0.1ms)
+I, [2013-10-03T10:10:52.162410 #10946]  INFO -- :   Rendered shared/_stylesheets.html.erb (1.3ms)
+I, [2013-10-03T10:10:52.162767 #10946]  INFO -- :   Rendered shared/_shiv.html.erb (0.2ms)
+I, [2013-10-03T10:10:52.163407 #10946]  INFO -- :   Rendered shared/_nav.html.erb (0.5ms)
+I, [2013-10-03T10:10:52.163646 #10946]  INFO -- :   Rendered shared/_alerts.html.erb (0.1ms)
+I, [2013-10-03T10:10:52.163842 #10946]  INFO -- :   Rendered shared/_footer.html.erb (0.0ms)
+I, [2013-10-03T10:10:52.164061 #10946]  INFO -- : Completed 200 OK in 138ms (Views: 117.8ms | ActiveRecord: 19.7ms)
