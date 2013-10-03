@@ -1,2 +1,0 @@
-class ActivityReportController < ApplicationController
-end

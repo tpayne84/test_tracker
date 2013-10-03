@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Record
   <% end %>
-  <h1>Listing records</h1>
+  <h1>Activity Report</h1>
 </div>
 
 <div class="table-responsive">
@@ -11,8 +11,8 @@
     <thead>
       <tr>
 
-        <th>Client</th>
         <th>User</th>
+        <th>Client</th>
         <th>Group</th>
         <th>Course</th>
         <th>Score</th>
@@ -21,14 +21,14 @@
         <th>Requal Date</th>
         <th>Show</th>
         <th>Edit</th>
-        <th>Destroy</th>
+        <th>Delete</th>
       </tr>
     </thead>
 
     <tbody>
       <%= content_tag_for(:tr, @records) do |record| %>
-            <td><%= record.user.client.name %></td>
             <td><%= record.user.full_name %></td>
+            <td><%= record.user.client.name %></td>
             <td><%= record.user.group.name %></td>
             <td><%= get_course_name(record.course_id) %></td>
             <td><%= record.score %></td>
@@ -42,7 +42,7 @@
 
             <td><%= link_to 'Show', record %></td>
         <td><%= link_to 'Edit', edit_record_path(record) %></td>
-        <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
   </table>
