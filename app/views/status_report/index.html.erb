@@ -25,9 +25,9 @@
     <tbody>
       <%= content_tag_for(:tr, @records) do |record| %>
             <% if record.pass == true && record.requal_date > Date.today %>
-              <td style="color:green;"><b>Good</b></td>
+              <td style="color:green;"><b>Qualified</b></td>
             <% else %>
-              <td style="color:red;"><b>Bad</b></td>
+              <td style="color:red;"><b>Not Qualified</b></td>
             <% end %>
             <td><%= record.user.full_name %></td>
             <td><%= record.user.client.name %></td>
