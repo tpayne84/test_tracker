@@ -7,7 +7,7 @@
 </div>
 
 <div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
+  <table class="table table-striped table-bordered">
     <thead>
       <tr>
         <th>User</th>
@@ -27,9 +27,9 @@
             <td><%= record.user.group.name %></td>
             <td><%= get_course_name(record.course_id) %></td>
             <% if record.pass == true && record.requal_date > Date.today %>
-              <td style="color:green;"><b>Qualified</b></td>
+              <td style="background-color: LightGreen;"><b>Qualified</b></td>
             <% else %>
-              <td style="color:red;"><b>Not Qualified</b></td>
+              <td style="background-color: LightCoral;"><b>Not Qualified</b></td>
             <% end %>
             <td><%= record.completed_date %></td>
             <td><%= record.requal_date %></td>

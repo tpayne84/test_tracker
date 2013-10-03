@@ -2,11 +2,10 @@
 @import "../../../vendor/assets/stylesheets/flatstrap/bootstrap.scss";
 
 tbody tr:nth-child(odd) {
-   background-color: #B7C3D0;
+   background-color: white;
 }
 tbody tr:nth-child(even) {
-   background-color: #75A1D0;
-   color: white;
+   background-color: LightSteelBlue;
 }
 
 th {
@@ -54,6 +53,6 @@ width: 95%;
 }
 
 .high-alert {
-	background-color: red;
+	background-color: LightCoral;
 	border: 1px solid black;
 }
