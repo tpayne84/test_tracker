@@ -1,26 +1,22 @@
 <div class="row-fixed">
-	<div class="span6">
+	<div class="dash-block">
+		<h2 class="dash-header high-alert">
+			Act Now &lt; 1 Month
+		</h2>
+	 	<%= render 'blocks/status_table_1_month' %>
+	</div>
 
-		<div class="span6 dash-block">
-			<h2 class="dash-header high-alert">
-				Act Now &lt; 1 Month
-			</h2>
-		 	<%= render 'blocks/status_table_1_month' %>
-		</div>
+	<div class="dash-block">
+		<h2 class="dash-header mid-alert">
+			Expiring &lt; 2 Months
+		</h2>
+	 	<%= render 'blocks/status_table_2_months' %>
+	</div>
 
-		<div class="span6 dash-block">
-			<h2 class="dash-header mid-alert">
-				Expiring &lt; 2 Months
-			</h2>
-		 	<%= render 'blocks/status_table_2_months' %>
-		</div>
-
-		<div class="span6 dash-block">
-			<h2 class="dash-header low-alert">
-				Expiring &lt; 3 Months
-			</h2>
-			  <%= render 'blocks/status_table_3_months' %>
-		</div>
-		
+	<div class="dash-block">
+		<h2 class="dash-header low-alert">
+			Expiring &lt; 3 Months
+		</h2>
+		  <%= render 'blocks/status_table_3_months' %>
 	</div>
 </div>
