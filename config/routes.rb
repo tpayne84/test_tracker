@@ -1,4 +1,4 @@
-Flatstrap::Application.routes.draw do
+Tracker::Application.routes.draw do
   root to: 'dashboard#index'
 
   resources :clients
