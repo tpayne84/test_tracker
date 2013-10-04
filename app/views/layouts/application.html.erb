@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Oasis Initiative : Test Tracker</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= render 'shared/meta' %>
   <%= render 'shared/stylesheets' %>
   <%= render 'shared/shiv' %>
 </head>
 
 <body>
-	  <%= render 'shared/nav' %>
-	  <%= render 'shared/brand' %>
-	<div class="container header-push">
-	  <%= render 'shared/alerts' %>
-	  <%= yield %>
-	</div>
+		<%= render 'shared/nav' %>
+		<%= render 'shared/brand' %>
+		<div class="content">
+		<%= render 'shared/sidebar' %>
+		  	<!-- Main bar -->
+		  	<div class="mainbar">
+		      <!-- Page heading -->
+		      <div class="page-head">
+		        <h2 class="pull-left"><i class="icon-table"></i> Tables</h2>
+		        <!-- Breadcrumb -->
+		        <div class="bread-crumb pull-right">
+		          <a href="index.html"><i class="icon-home"></i> Home</a> 
+		          <!-- Divider -->
+		          <span class="divider">/</span> 
+		          <a href="#" class="bread-current">Dashboard</a>
+		        </div>
+		        <div class="clearfix"></div>
+		      </div>
+		      <!-- Page heading ends -->
+			    <!-- Matter -->
+			    <div class="matter">
+		          <div class="container-fluid">
+					  <%= render 'shared/alerts' %>
+					  <%= yield %>
+				  </div>
+			    </div>
+				<!-- Matter ends -->
+		    </div>
+		   <!-- Mainbar ends -->	    	
+		   <div class="clearfix"></div>
+		</div>
 	<%= render 'shared/footer' %>
 </body>
 </html>
+
