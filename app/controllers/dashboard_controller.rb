@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
 		@three_month_report = Record.where("pass = ? AND requal_date < ?", true, Date.today + 3.months)
 		@two_month_report = Record.where("pass = ? AND requal_date < ?", true, Date.today + 2.months)
 		@one_month_report = Record.where("pass = ? AND requal_date < ?", true, Date.today + 1.months)
+		@expired_report = Record.where("pass = ? AND requal_date < ?", true, Date.today)
 	end
 
 	def course_name(course_id)
