@@ -2,9 +2,9 @@ class DashboardController < ApplicationController
 	helper_method :course_name
 
 	def index
-		@three_month_report = Record.where("pass = ? AND requal_date < ?", true, Date.today + 3.months)
-		@two_month_report = Record.where("pass = ? AND requal_date < ?", true, Date.today + 2.months)
-		@one_month_report = Record.where("pass = ? AND requal_date < ?", true, Date.today + 1.months)
+		@three_month_report = Record.where("pass = ? AND requal_date < ? AND requal_date > ?", true, Date.today + 3.months, Date.today + 2.months)
+		@two_month_report = Record.where("pass = ? AND requal_date < ? AND requal_date > ?", true, Date.today + 2.months, Date.today + 1.month)
+		@one_month_report = Record.where("pass = ? AND requal_date > ? AND requal_date < ?", true, Date.today, Date.today + 1.months)
 		@expired_report = Record.where("pass = ? AND requal_date < ?", true, Date.today)
 	end
 
