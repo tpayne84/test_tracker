@@ -19,3 +19,8 @@ margin-right:auto;
 	padding-bottom: 5px; 	
 	border-top: 3px solid LightGray;
 }
+
+@media screen and (min-width: 0px) and (max-width: 720px) {
+  #brand-header { display: none; }
+  .mobile-hide{ display: none; }
+}
