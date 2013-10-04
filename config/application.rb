@@ -8,5 +8,6 @@ Bundler.require(*Rails.groups(assets: %w(development test production)))
 module Tracker
   class Application < Rails::Application
 	config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)    
+	config.assets.initialize_on_precompile = false
   end
 end
