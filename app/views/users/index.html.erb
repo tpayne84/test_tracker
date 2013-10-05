@@ -19,9 +19,9 @@
         <td><%= user.last_name %></td>
         <td><%= user.client.name %></td>
         <td><%= user.group.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user, :class => "btn btn-default btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_user_path(user), :class => "btn btn-default " %></td>
+        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default " %></td>
       <% end %>
     </tbody>
   </table>

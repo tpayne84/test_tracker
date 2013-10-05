@@ -1,14 +1,7 @@
 <% provide(:title, 'Group List') %>
-<div class="page-header">
-  <%= link_to new_group_path, :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Group
-  <% end %>
-  <h1>Listing Groups</h1>
-</div>
 
 <div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
+  <table class="table table-striped table-bordered table-hover report-width center">
     <thead>
       <tr>
           <th>Name</th>
@@ -23,9 +16,9 @@
       <%= content_tag_for(:tr, @groups) do |group| %>
             <td><%= group.name %></td>
             <td><%= group.client.name %></td>
-            <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Show', group, :class => "btn btn-default btn-primary" %></td>
+            <td><%= link_to 'Edit', edit_group_path(group), :class => "btn btn-default " %></td>
+            <td><%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default " %></td>
       <% end %>
     </tbody>
   </table>

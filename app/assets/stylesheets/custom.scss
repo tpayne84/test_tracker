@@ -9,6 +9,16 @@ body {
 	background: -o-linear-gradient(top, WhiteSmoke, LightGray);
 }
 
+.table thead > tr > th{
+	text-align:center;
+}
+
+.table tbody > tr > td{
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+
 .brand-row{
 	padding-right: 2%;
 }
@@ -62,11 +72,11 @@ body {
 }
 
 .push-right{
-	margin-left: 5%''
+	margin-left: 5%;
 }
 
 .push-left{
-	margin-right: 5%''
+	margin-right: 5%;
 }
 
 .widget-width {
@@ -81,8 +91,12 @@ body {
 
 .center
 {
-margin-left:auto;
-margin-right:auto;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.center-text{
+	text-align:center;
 }
 
 .align-top{
@@ -98,6 +112,6 @@ margin-right:auto;
 }
 
 @media screen and (min-width: 0px) and (max-width: 720px) {
-  #brand-header { display: none; }
-  .mobile-hide{ display: none; }
+	#brand-header { display: none; }
+	.mobile-hide{ display: none; }
 }

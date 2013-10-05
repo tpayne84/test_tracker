@@ -19,11 +19,11 @@
         </thead>
 
         <tbody>
-          <td><%= collection_select(:client_id, 0, Client.find(:all, :order => "name"), :id, :name) %></td>
-          <td><%= collection_select(:group_id, 0, Group.find(:all, :order => "name"), :id, :name) %></td>
-          <td><%= collection_select(:user_id, 0, User.find(:all, :order => "first_name, last_name"), :id, :full_name) %></td>
+          <td><%= collection_select(:client_id, 0, Client.find(:all, :order => "name"), :id, :name, {}, {:class=>'form-control'}) %></td>
+          <td><%= collection_select(:group_id, 0, Group.find(:all, :order => "name"), :id, :name, {}, {:class=>'form-control'}) %></td>
+          <td><%= collection_select(:user_id, 0, User.find(:all, :order => "first_name, last_name"), :id, :full_name, {}, {:class=>'form-control'}) %></td>
 
-          <td><%= submit_tag 'Filter Report', :class => "btn btn-primary" %></td>
+          <td><%= submit_tag 'Filter Report', :class => "btn btn-primary form-control" %></td>
         </tbody>
       </table>
     </form>
