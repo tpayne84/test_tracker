@@ -2,6 +2,38 @@ body {
 	background-color: #f2f2f2;
 }
 
+.alert-expired{
+	margin-bottom: 35px; 
+	/*Maroon*/
+	box-shadow: 0px 0px 10px 10px rgba(128, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 10px 10px rgba(128, 0, 0, 0.75);
+	-webkit-box-shadow: 0px 0px 10px 10px rgba(128, 0, 0, 0.75);
+}
+
+.alert-one-month{
+	margin-bottom: 35px; 
+	/*IndianRed*/
+	box-shadow: 0px 0px 10px 10px rgba(205, 92, 92, 0.75);
+	-moz-box-shadow: 0px 0px 10px 10px rgba(205, 92, 92, 0.75);
+	-webkit-box-shadow: 0px 0px 10px 10px rgba(205, 92, 92, 0.75);
+}
+
+.alert-two-month{
+	margin-bottom: 35px; 
+	/*Orange*/
+	box-shadow: 0px 0px 10px 10px rgba(255, 165, 0, 0.75);
+	-moz-box-shadow: 0px 0px 10px 10px rgba(255, 165, 0, 0.75);
+	-webkit-box-shadow: 0px 0px 10px 10px rgba(255, 165, 0, 0.75);
+}
+
+.alert-three-month{
+	margin-bottom: 35px; 
+	/*Khaki*/
+	box-shadow: 0px 0px 10px 10px rgba(240, 230, 140, 0.75);
+	-moz-box-shadow: 0px 0px 10px 10px rgba(240, 230, 140, 0.75);
+	-webkit-box-shadow: 0px 0px 10px 10px rgba(240, 230, 140, 0.75);
+}
+
 .header-push {
 	margin-top: 40px;
 }
