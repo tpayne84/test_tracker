@@ -1,5 +1,21 @@
+body {
+	background-color: #f2f2f2;
+}
+
 .header-push {
 	margin-top: 40px;
+}
+
+.half-width {
+	width: 50%;
+}
+
+.push-right{
+	margin-left: 5%''
+}
+
+.push-left{
+	margin-right: 5%''
 }
 
 .widget-width {
@@ -7,10 +23,20 @@
 	margin: 25px;
 }
 
+.report-width {
+	width: 90%;
+	margin: 25px;
+}
+
 .center
 {
 margin-left:auto;
 margin-right:auto;
+}
+
+.align-top{
+	vertical-align:top;
+	display: inline-block;
 }
 
 .footer-border {

@@ -20,31 +20,31 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :course_id, :class => "col-lg-2 control-label" %>
+    <%= f.label :course_id, :class => "col-lg-4 control-label" %>
     <div class="col-lg-10">
       <%= f.collection_select :course_id, Course.all, :id, :name %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :completed_date, :class => "col-lg-2 control-label" %>
+    <%= f.label :completed_date, :class => "col-lg-4 control-label" %>
     <div class="col-lg-10">
       <%= f.date_select :completed_date, :class => "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :score, :class => "col-lg-2 control-label" %>
-    <div class="col-lg-10">
+    <%= f.label :score, :class => "col-lg-4 control-label" %>
+    <div class="col-lg-2">
       <%= f.text_field :score, :class => "form-control" %>
     </div>
   </div>
       <div class="form-group">
-    <%= f.label :pass, :class => "col-lg-2 control-label" %>
+    <%= f.label :pass, :class => "col-lg-4 control-label" %>
     <div class="col-lg-10">
       <%= f.check_box :pass, :class => "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
+    <div class="col-lg-10">
       <%= f.submit :class => "btn btn-primary" %>
     </div>
   </div>

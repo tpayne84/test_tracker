@@ -1,82 +1,43 @@
-<header id="brand-header" class="mobile-hide">
-  <div class="container-fluid">
-    <div class="row-fluid">
+<header>
+  <div class="container">
+    <div class="row">
 
       <!-- Logo section -->
-      <div class="span4">
+      <div class="col-md-4">
         <!-- Logo. -->
         <div class="logo">
-          <%= image_tag "oasis_logo.png", :class => "media-object pull-left", :size => '200x60' %>
+        <%= image_tag "oasis_logo.png", :class => "media-object pull-left", :size => '200x60' %>
         </div>
         <!-- Logo ends -->
       </div>
 
-        <!-- Message Buttons with Qual Couts -->
-      <div class="span4 pull-right">
-        <ul class="nav nav-pills">
-          <li>
-            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-              <i class="icon-remove-sign"></i> Expired <span class="badge badge-important"><%= @expired = badge_expired %></span> 
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-              <i class="icon-minus-sign"></i> Soon <span class="badge badge-warning"><%= @soon = badge_soon %></span> 
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-              <i class="icon-thumbs-up"></i> Good <span class="badge badge-success"><%= @good = badge_good %></span> 
-            </a>
-          </li>
+        <!-- Buttons -->
+        <ul class="nav nav-pills pull-left">
+        <li>
+          <a>
+            <i class="icon-remove-sign"></i> Expired <span class="label label-danger"><%= @expired = badge_expired %></span> 
+          </a>
+        </li>
+        <li>
+          <a>
+            <i class="icon-minus-sign"></i> Soon <span class="label label-warning"><%= @soon = badge_soon %></span> 
+          </a>
+        </li>
+        <li>
+          <a>
+            <i class="icon-thumbs-up"></i> Good <span class="label label-success"><%= @good = badge_good %></span> 
+          </a>
+        </li>           
         </ul>
-      </div>
-      
-<!--      
-      <div class="span4">
-        <div class="header-data">
 
-          <div class="hdata">
-            <div class="mcol-left">
+        <ul class="nav nav-pills pull-right">
+        <li>
+          <a href="/records/new">
+            <i class="icon-plus"></i> Add Record
+          </a>
+        </li>           
+        </ul>
 
-              <i class="icon-signal bred"></i> 
-            </div>
-            <div class="mcol-right">
-
-              <p><a href="#">7000</a> <em>visits</em></p>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-
-
-          <div class="hdata">
-            <div class="mcol-left">
-
-              <i class="icon-user bblue"></i> 
-            </div>
-            <div class="mcol-right">
-
-              <p><a href="#">3000</a> <em>users</em></p>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-
-
-          <div class="hdata">
-            <div class="mcol-left">
-
-              <i class="icon-money bgreen"></i> 
-            </div>
-            <div class="mcol-right">
-
-              <p><a href="#">5000</a> <em>orders</em></p>
-            </div>
-            <div class="clearfix"></div>
-          </div>                        
-
-        </div>
-      </div>
- -->
     </div>
   </div>
 </header>
