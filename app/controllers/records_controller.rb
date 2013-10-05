@@ -21,6 +21,8 @@ class RecordsController < ApplicationController
   # GET /records/new
   def new
     @record = Record.new
+    @clients = Client.all
+    @user = User.new
   end
 
   # GET /records/1/edit
