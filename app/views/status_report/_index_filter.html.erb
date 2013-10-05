@@ -1,0 +1,36 @@
+<div class="widget wgreen report-width center">
+  <div class="widget-head">
+    <div class="pull-left">Filtering Options</div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="widget-content ">
+<!-- ################### -->
+
+  <div class="table-responsive">
+    <form method="get">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Group</th>
+            <th>User</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <td><%= collection_select(:client_id, 0, Client.find(:all, :order => "name"), :id, :name, {}, {:class=>'form-control'}) %></td>
+          <td><%= collection_select(:group_id, 0, Group.find(:all, :order => "name"), :id, :name, {}, {:class=>'form-control'}) %></td>
+          <td><%= collection_select(:user_id, 0, User.find(:all, :order => "first_name, last_name"), :id, :full_name, {}, {:class=>'form-control'}) %></td>
+
+          <td><%= submit_tag 'Filter Report', :class => "btn btn-primary form-control" %></td>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+ <!-- ################### -->
+  </div>
+</div>
+
+
