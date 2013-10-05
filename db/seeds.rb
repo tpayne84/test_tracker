@@ -55,8 +55,8 @@ Course.create(requal_interval: 12, name: "Working Alone")
 
 Client.create(name: "Boots Smith Oilfield Services LLC")
 
-Group.create(name: "Pipeline")
-Group.create(name: "Construction")
+Group.create(name: "Pipeline", client_id: 1)
+Group.create(name: "Construction", client_id: 1)
 
 User.create(first_name: "Boots", last_name: "Smith", client_id: 1, group_id: 1)
 

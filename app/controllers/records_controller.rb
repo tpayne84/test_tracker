@@ -22,7 +22,8 @@ class RecordsController < ApplicationController
   def new
     @record = Record.new
     @clients = Client.all
-    @user = User.new
+    @groups = Group.all
+    @users = User.all
   end
 
   # GET /records/1/edit
@@ -86,5 +87,13 @@ class RecordsController < ApplicationController
       interval = course.requal_interval
     end
 
+    def update_records
+      # updates artists and songs based on genre selected
+      company = Company.find(params[:company_id])
+      group = Group.find(params[:group_id])
+      # map to name and id for use in our options_for_select
+      @users = company.users.map{|u| [u.full_name, u.id]}.insert(0, "Select a User")
+      @users = company.users.map{|u| [u.full_name, u.id]}.insert(0, "Select a User")
+    end
 
 end

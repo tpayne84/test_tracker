@@ -2,6 +2,17 @@ body {
 	background-color: #f2f2f2;
 }
 
+.table thead{
+	background: -webkit-linear-gradient(top, WhiteSmoke, LightGray);
+	background: -moz-linear-gradient(top, WhiteSmoke, LightGray);
+	background: -ms-linear-gradient(top, WhiteSmoke, LightGray);
+	background: -o-linear-gradient(top, WhiteSmoke, LightGray);
+}
+
+.brand-row{
+	padding-right: 2%;
+}
+
 .alert-expired{
 	max-height: 450px;
 	overflow: scroll;
