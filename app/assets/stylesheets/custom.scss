@@ -3,6 +3,7 @@ body {
 }
 
 .alert-expired{
+	max-height: 450px;
 	overflow: scroll;
 	margin-bottom: 35px; 
 	/*Maroon*/
@@ -12,6 +13,7 @@ body {
 }
 
 .alert-one-month{
+	max-height: 450px;
 	overflow: scroll;
 	margin-bottom: 35px; 
 	/*IndianRed*/
@@ -21,6 +23,7 @@ body {
 }
 
 .alert-two-month{
+	max-height: 450px;
 	overflow: scroll;
 	margin-bottom: 35px; 
 	/*Orange*/
@@ -30,6 +33,7 @@ body {
 }
 
 .alert-three-month{
+	max-height: 450px;
 	overflow: scroll;
 	margin-bottom: 35px; 
 	/*Khaki*/
