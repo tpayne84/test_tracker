@@ -1,6 +1,6 @@
 README
 ======
+This is a demo application to demonstrate my skill... Hire me!
 
-This is a Rails 4 Starter App, already setup with [Tracker by Little Spark](http://flatstrap.org/).
 
-Just clone and go!
+This is a Records Management Database application.  It allows for the tracking of Test Scores, Re-Qualification Dates (with email notifications), report generation, scoped searches, is fully responsive, has been integrated with the Mac-Admin Theme, and much more... [http://crm-tracker.oasisinitiative.net](View this Site in Action!)
