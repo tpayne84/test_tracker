@@ -1,37 +1,39 @@
-<div class="widget">
+<div class="widget widget-width">
   <div class="widget-head">
     <div class="pull-left">Expiring in &lt; 2 Months</div>
     <div class="clearfix"></div>
   </div>
   <div class="widget-content">
-    <table class="table table-striped table-bordered table-hover">
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Company</th>
-          <th>Group</th>
-          <th>Evaluation</th>
-          <th>Expiration</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @two_month_report.each do |data| %>
+    <div class="table-responsive widget-width ">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
           <tr>
-            
-            <td><%= data.user.full_name %></td>
-            <td><%= data.user.client.name %></td>
-            <td><%= data.user.group.name %></td>
-            <td><%= @course_name = course_name(data.course_id) %></td>
-            <td><%= data.requal_date %></td>
+            <th>User</th>
+            <th>Company</th>
+            <th>Group</th>
+            <th>Evaluation</th>
+            <th>Expiration</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <div class="widget-foot">
-      <ul class="pagination pull-right">
-        <%= will_paginate @two_month_report, renderer: BootstrapPagination::Rails, bootstrap: 3 %>
-     </ul>
-     <div class="clearfix"></div>
+        </thead>
+        <tbody>
+          <% @two_month_report.each do |data| %>
+            <tr>
+              
+              <td><%= data.user.full_name %></td>
+              <td><%= data.user.client.name %></td>
+              <td><%= data.user.group.name %></td>
+              <td><%= @course_name = course_name(data.course_id) %></td>
+              <td><%= data.requal_date %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="widget-foot">
+        <ul class="pagination pull-right">
+          <%= will_paginate @two_month_report, renderer: BootstrapPagination::Rails, bootstrap: 3 %>
+       </ul>
+       <div class="clearfix"></div>
+      </div>
     </div>
   </div>
 </div>

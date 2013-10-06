@@ -6,24 +6,24 @@
   </div>
   <div class="widget-content padd">
 <!-- ################### -->
-
-<table class="table table-striped table-bordered table-hover">
-      <thead>
-        <tr>
-          <th>Course Name</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
+    <div class="table-responsive widget-width ">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
           <tr>
-          <td><%= @course.name %></td>
-          <td><%= link_to "Edit", edit_course_path(@course), :class => 'btn btn-primary' %></td>
-          <td><%= link_to "Back", courses_path, :class => 'btn btn-default' %></td>
+            <th>Course Name</th>
+            <th></th>
+            <th></th>
           </tr>
-      </tbody>
-    </table>
-
+        </thead>
+        <tbody>
+            <tr>
+            <td><%= @course.name %></td>
+            <td><%= link_to "Edit", edit_course_path(@course), :class => 'btn btn-primary' %></td>
+            <td><%= link_to "Back", courses_path, :class => 'btn btn-default' %></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
  <!-- ################### -->
   </div>
 </div>
