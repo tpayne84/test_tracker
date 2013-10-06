@@ -17,8 +17,8 @@
       <%= content_tag_for(:tr, @users) do |user| %>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= user.client.name %></td>
-        <td><%= user.group.name %></td>
+        <td><%= user.client.name unless user.client == nil %></td>
+        <td><%= user.group.name  unless user.group == nil %></td>
         <td><%= link_to 'Show', user, :class => "btn btn-default btn-primary" %></td>
         <td><%= link_to 'Edit', edit_user_path(user), :class => "btn btn-default " %></td>
         <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default " %></td>

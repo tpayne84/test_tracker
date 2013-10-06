@@ -19,22 +19,30 @@
           </ul>
         </div>
       <% end %>
+        
 
       <div class="form-group">
-        <%= f.label :user_id, :class => "col-lg-2 control-label" %>
+        <%= label :client, :client_id, :class => "col-lg-2 control-label" %>
         <div class="col-lg-10">
-          <%= f.collection_select :user_id, User.all, :id, :full_name %>
+          <%= collection_select(:client, :client_id, Client.find(:all, :order => "name"), :id, :name, {:prompt => true}, {:class=>'form-control'}) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label :user, :user_id, :class => "col-lg-2 control-label", :id => "user-header" %>
+        <div class="col-lg-10">
+          <%= f.grouped_collection_select( :user_id, Client.order(:name), :users, :name, :id, :full_name, {:prompt => true}, {:class=>'form-control'}) %>
         </div>
       </div>
 
       <div class="form-group">
         <%= f.label :course_id, :class => "col-lg-4 control-label" %>
         <div class="col-lg-10">
-          <%= f.collection_select :course_id, Course.all, :id, :name %>
+          <%= f.collection_select(:course_id,  Course.find(:all, :order => "name"), :id, :name, {:prompt => true}, {:class=>"form-control"}) %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :completed_date, :class => "col-lg-4 control-label" %>
+        <%= f.label :completed_date, :class => "col-lg-4 control-label control-label" %>
         <div class="col-lg-10">
           <%= f.date_select :completed_date, :class => "form-control" %>
         </div>
@@ -48,17 +56,17 @@
           <div class="form-group">
         <%= f.label :pass, :class => "col-lg-4 control-label" %>
         <div class="col-lg-10">
-          <%= f.check_box :pass, :class => "form-control" %>
+          <%= f.check_box :pass %>
         </div>
       </div>
       <div class="form-group">
         <div class="col-lg-10">
-          <%= f.submit :class => "btn btn-primary" %>
+          <%= f.submit :class => "btn btn-primary btn-lg push-right" %>
         </div>
       </div>
-
     <% end %>
- 
+
  <!-- ################### -->
   </div>
 </div>
+

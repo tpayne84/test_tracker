@@ -2,6 +2,24 @@ body {
 	background-color: #f2f2f2;
 }
 
+div select {
+  width: 33%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
 .table thead{
 	background: -webkit-linear-gradient(top, WhiteSmoke, LightGray);
 	background: -moz-linear-gradient(top, WhiteSmoke, LightGray);
@@ -21,46 +39,6 @@ body {
 
 .brand-row{
 	padding-right: 2%;
-}
-
-.alert-expired{
-	max-height: 450px;
-	overflow: scroll;
-	margin-bottom: 35px; 
-	/*Maroon*/
-	box-shadow: 0px 0px 10px 10px rgba(255, 69, 0, 0.75);
-	-moz-box-shadow: 0px 0px 10px 10px rgba(255, 69, 0, 0.75);
-	-webkit-box-shadow: 0px 0px 10px 10px rgba(255, 69, 0, 0.75);
-}
-
-.alert-one-month{
-	max-height: 450px;
-	overflow: scroll;
-	margin-bottom: 35px; 
-	/*IndianRed*/
-	box-shadow: 0px 0px 10px 10px rgba(205, 92, 92, 0.75);
-	-moz-box-shadow: 0px 0px 10px 10px rgba(205, 92, 92, 0.75);
-	-webkit-box-shadow: 0px 0px 10px 10px rgba(205, 92, 92, 0.75);
-}
-
-.alert-two-month{
-	max-height: 450px;
-	overflow: scroll;
-	margin-bottom: 35px; 
-	/*OrangeRed*/
-	box-shadow: 0px 0px 10px 10px rgba(255, 165, 0, 0.75);
-	-moz-box-shadow: 0px 0px 10px 10px rgba(255, 165, 0, 0.75);
-	-webkit-box-shadow: 0px 0px 10px 10px rgba(255, 165, 0, 0.75);
-}
-
-.alert-three-month{
-	max-height: 450px;
-	overflow: scroll;
-	margin-bottom: 35px; 
-	/*Khaki*/
-	box-shadow: 0px 0px 10px 10px rgba(240, 230, 140, 0.75);
-	-moz-box-shadow: 0px 0px 10px 10px rgba(240, 230, 140, 0.75);
-	-webkit-box-shadow: 0px 0px 10px 10px rgba(240, 230, 140, 0.75);
 }
 
 .header-push {

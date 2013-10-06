@@ -13,7 +13,7 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.label :first_name, :class => "col-lg-2 control-label push-right" %>
+      <%= f.label :first_name, :class => "col-lg-2 control-label" %>
       <div class="col-lg-10 ">
         <%= f.text_field :first_name, :class => "form-control" %>
       </div>
@@ -26,18 +26,19 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :group_id, "Group", :class => "col-lg-2 control-label" %>
+      <%= label :client, :client_id, :class => "col-lg-2 control-label" %>
       <div class="col-lg-10">
-        <%= f.collection_select :group_id, Group.all, :id, :name, :class => "form-control" %>
+        <%= collection_select(:client, :client_id, Client.find(:all, :order => "name"), :id, :name, {:prompt => true}, {:class=>'form-control'}) %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :client_id, "Company", :class => "col-lg-2 control-label" %>
+      <%= label :group, :group_id, :class => "col-lg-2 control-label", :id => "group-header" %>
       <div class="col-lg-10">
-        <%= f.collection_select :client_id, Client.all, :id, :name, :class => "form-control" %>
+        <%= f.grouped_collection_select( :group_id, Client.order(:name), :groups, :name, :id, :name, {:prompt => true}, {:class=>'form-control'}) %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="col-lg-8">
         <%= f.submit :class => "btn btn-primary" %>

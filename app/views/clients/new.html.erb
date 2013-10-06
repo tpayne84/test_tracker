@@ -1,9 +1,2 @@
-<div class="page-header">
-  <%= link_to clients_path, :class => 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <h1>New Company</h1>
-</div>
-
+<% provide(:title, 'New Company') %>
 <%= render 'form' %>

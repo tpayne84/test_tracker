@@ -1,3 +1,11 @@
+<div class="widget wgreen widget-width">
+  <div class="widget-head">
+    <div class="pull-left"><%= yield(:title) %></div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="widget-content padd">
+<!-- ################### -->
+
 <%= form_for(@client, :html => { :class => "form-horizontal" }) do |f| %>
   <% if @client.errors.any? %>
     <div class="alert alert-danger alert-dismissable">
@@ -19,8 +27,12 @@
     </div>
   </div>
   <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit :class => "btn btn-primary" %>
+    <div class="col-lg-10">
+      <%= f.submit "Create Company", :class => "btn btn-primary btn-lg" %>
     </div>
   </div>
 <% end %>
+
+ <!-- ################### -->
+  </div>
+</div>

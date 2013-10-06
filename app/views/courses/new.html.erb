@@ -1,9 +1,13 @@
-<div class="page-header">
-  <%= link_to courses_path, :class => 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <h1>New Course</h1>
-</div>
+<% provide(:title, 'New Course') %>
+
+<div class="widget wgreen widget-width">
+  <div class="widget-head">
+    <div class="pull-left"><%= yield(:title) %></div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="widget-content padd">
 
 <%= render 'form' %>
+
+  </div>
+</div>
