@@ -15,26 +15,18 @@
         </tr>
       </thead>
       <tbody>
-        <% @expired_report.each do |data| %>
-          <tr>
-            
+        <%= content_tag_for(:tr, @expired_report) do |data| %>            
             <td><%= data.user.full_name %></td>
             <td><%= data.user.client.name %></td>
             <td><%= data.user.group.name %></td>
             <td><%= @course_name = course_name(data.course_id) %></td>
             <td><%= data.requal_date %></td>
-          </tr>
         <% end %>
       </tbody>
     </table>
      <div class="widget-foot">
         <ul class="pagination pull-right">
-          <li><a href="#">Prev</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-         <li><a href="#">Next</a></li>
+        <%= will_paginate @expired_report, renderer: BootstrapPagination::Rails, bootstrap: 3 %>
        </ul>
       <div class="clearfix"></div>
      </div>

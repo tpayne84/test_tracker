@@ -14,6 +14,7 @@
         </tr>
       </thead>
     <tbody>
+      
       <%= content_tag_for(:tr, @users) do |user| %>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
@@ -27,12 +28,7 @@
   </table>
   <div class="widget-foot">
     <ul class="pagination pull-right">
-      <li><a href="#">Prev</a></li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">Next</a></li>
+      <%= will_paginate @users, renderer: BootstrapPagination::Rails, bootstrap: 3 %>
     </ul>
     <div class="clearfix"></div>
   </div>

@@ -10,6 +10,10 @@ gem 'rails', '4.0.0'
 # Use postgres... Best Prac in dev and production
 gem 'pg'
 
+# add pagination
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+
 # Debug
 gem 'debugger'
 

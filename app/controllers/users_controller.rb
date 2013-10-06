@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.find(:all, :order => "last_name, first_name")
+    @users = User.order("first_name, last_name").page(params[:page]).per_page(10)
   end
 
   # GET /users/1
@@ -15,7 +15,6 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @clients = Client.all
     @user = User.new
   end
 

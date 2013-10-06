@@ -8,10 +8,10 @@ class StatusReportController < ApplicationController
         if @records.nil?
           flash[:error] = "Please select a Company and User"
         else
-          @records = @records.records
+          @records = @records.records.page(params[:page]).per_page(10)
         end
       else
-        @records = Record.find(:all)
+        @records = Record.page(params[:page]).per_page(10)
       end
 	end
 
