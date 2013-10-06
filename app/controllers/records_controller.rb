@@ -1,10 +1,22 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy]
   helper_method :get_course_name
+  
+
   # GET /records
   # GET /records.json
   def index
-      @records = Record.all
+    #raise  params.inspect
+      if params.include?(:client)
+        @records = User.find_by_id(params[:client][:user_id])
+        if @records.nil?
+          flash[:error] = "Please select a Company and User"
+        else
+          @records = @records.records
+        end
+      else
+        @records = Record.find(:all)
+      end
   end
 
   def get_course_name(course_id)

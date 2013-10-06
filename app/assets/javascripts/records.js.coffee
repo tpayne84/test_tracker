@@ -1,5 +1,6 @@
 jQuery ->
   $('#client_user_id').parent().hide()
+  $('#user-header').parent().hide()
   users = $('#client_user_id').html()
   $('#client_client_id').change ->
     client = $('#client_client_id :selected').text()
@@ -8,6 +9,8 @@ jQuery ->
     if options
       $('#client_user_id').html(options)
       $('#client_user_id').parent().show()
+      $('#user-header').parent().show()
     else
       $('#client_user_id').empty()
       $('#client_user_id').parent().hide()
+      $('#user-header').parent().show()

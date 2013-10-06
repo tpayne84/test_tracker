@@ -2,16 +2,22 @@ class StatusReportController < ApplicationController
 	helper_method :get_course_name
 
 	def index
-		@records = Record.all
-	end
-
-	def show
-		@record = Record.find(params[:id])
+	    #raise  params.inspect
+      if params.include?(:client)
+        @records = User.find_by_id(params[:client][:user_id])
+        if @records.nil?
+          flash[:error] = "Please select a Company and User"
+        else
+          @records = @records.records
+        end
+      else
+        @records = Record.find(:all)
+      end
 	end
 
 	def get_course_name(course_id)
 		@course = Course.find(course_id)
 		@course.name
 	end
-
+	
 end
