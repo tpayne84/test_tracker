@@ -21,11 +21,19 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name, :class => "col-lg-2 control-label" %>
+    <%= f.label :name, :class => "col-lg-4 control-label" %>
     <div class="col-lg-10">
       <%= f.text_field :name, :class => "form-control" %>
     </div>
   </div>
+
+    <div class="form-group">
+    <%= f.label :notification_email, "Notification Email", :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :notification_email, :class => "form-control" %>
+    </div>
+  </div>
+
   <div class="form-group">
     <div class="col-lg-10">
       <%= f.submit "Create Company", :class => "btn btn-primary btn-lg" %>
