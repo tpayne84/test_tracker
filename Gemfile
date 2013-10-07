@@ -9,6 +9,7 @@ gem 'rails', '4.0.0'
 
 # Use postgres... Best Prac in dev and production
 gem 'pg'
+gem 'pg_search'
 
 # add pagination
 gem 'will_paginate'
@@ -40,6 +41,7 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'

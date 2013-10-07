@@ -6,6 +6,7 @@
       <tr>
         <th>Name</th>
         <th>Requal Interval (Months)</th>
+        <th>Minimum Score</th>
         <th>Show</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -16,6 +17,7 @@
       <%= content_tag_for(:tr, @courses) do |course| %>
             <td><%= course.name %></td>
             <td><%= course.requal_interval %></td>
+            <td><%= course.min_score %></td>
             <td><%= link_to 'Show', course, :class => "btn btn-default btn-primary" %></td>
             <td><%= link_to 'Edit', edit_course_path(course), :class => "btn btn-default " %></td>
             <td><%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default " %></td>

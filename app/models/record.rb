@@ -1,4 +1,5 @@
 class Record < ActiveRecord::Base
+	
 	belongs_to :user
 	has_one :course
 	has_one :client, through: :user

@@ -8,6 +8,9 @@ Tracker::Application.routes.draw do
   resources :users
   resources :status_report
   resources :records
+  resources :search
+
+  get 'search/:q', to: 'search#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

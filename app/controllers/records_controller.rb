@@ -11,7 +11,7 @@ class RecordsController < ApplicationController
         @records = User.find_by_id(params[:client][:user_id])
         if @records.nil?
           flash[:error] = "Please select a Company and User"
-        else
+        elsif
           @records = @records.records.page(params[:page]).per_page(10)
         end
       else

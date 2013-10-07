@@ -1,86 +1,70 @@
 <div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
-  
-    <div class="conjtainer">
-      <!-- Menu button for smallar screens -->
-      <div class="navbar-header">
-      <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-      <span>Menu</span>
-      </button>
-      <!-- Site name for smallar screens -->
-      <%= link_to "Records Tracker", dashboard_index_path, :class => "navbar-brand hidden-lg" %>
-    </div>
-
-      <!-- Navigation starts -->
-      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"> 
-        <!-- Search form -->
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input name="q" type="text" class="form-control" placeholder="Search">
-          </div>
-          <button class="btn btn-default"><i class="icon-search"></i></button>
-          <div class="form-group">
-            <select class="form-control" id="search_type" name="search_type">
-              <option value="1">Company</option>
-              <option value="2">Group</option>
-              <option value="3">User</option>
-            </select>
-          </div>
-        </form>
-
-        <!-- Add Links -->
-        <ul class="nav navbar-nav pull-right">
-          <li class="dropdown pull-right">            
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              <i class="icon-circle"></i> Add Items <b class="caret"></b>              
-            </a>
-            
-            <!-- Dropdown menu -->
-            <ul class="dropdown-menu">
-              <li><%= link_to "New Record", new_record_path %></li>
-              <li><%= link_to "New Company", new_client_path %></li>
-              <li><%= link_to "New User", new_user_path %></li>
-              <li><%= link_to "New Group", new_group_path %></li>
-              <li><%= link_to "New Course", new_course_path %></li>
-            </ul>
-          </li>
-        </ul>
-
-                <!-- View Links -->
-        <ul class="nav navbar-nav pull-right">
-          <li class="dropdown pull-right">            
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              <i class="icon-circle-blank"></i> View Items <b class="caret"></b>              
-            </a>
-            
-            <!-- Dropdown menu -->
-            <ul class="dropdown-menu">
-              <li><%= link_to "Activity Report", records_path %></li>
-              <li><%= link_to "Status Report", status_report_index_path %></li>
-              <li><%= link_to "Company List", clients_path %></li>
-              <li><%= link_to "Groups List", groups_path %></li>
-              <li><%= link_to "Users List", users_path %></li>
-              <li><%= link_to "Course List", courses_path %></li>
-            </ul>
-          </li>
-        </ul>
-
-        <!-- Admin Links -->
-        <ul class="nav navbar-nav pull-right">
-          <li class="dropdown pull-right">            
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              <i class="icon-user"></i> Admin <b class="caret"></b>              
-            </a>
-            
-            <!-- Dropdown menu -->
-            <ul class="dropdown-menu">
-              <li><a href="#"><i class="icon-user"></i> Profile</a></li>
-              <li><a href="#"><i class="icon-cogs"></i> Settings</a></li>
-              <li><a href="login.html"><i class="icon-off"></i> Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-
-      </nav>
-
-    </div>
+  <div class="conjtainer">
+    <!-- Menu button for smallar screens -->
+    <div class="navbar-header">
+    <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+    <span>Menu</span>
+    </button>
+    <!-- Site name for smallar screens -->
+    <%= link_to "Records Tracker", dashboard_index_path, :class => "navbar-brand hidden-lg" %>
   </div>
+    <!-- Navigation starts -->
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"> 
+      <!-- Search form -->
+      <form class="navbar-form navbar-left" role="search" accept-charset="UTF-8" action="/search" method="get">
+        <div class="form-group">
+          <input name="q" type="text" class="form-control" placeholder="Search">
+        </div>
+        <button method="get" class="btn btn-default"><i class="icon-search"></i></button>
+      </form>
+      <!-- Add Links -->
+      <ul class="nav navbar-nav pull-right">
+        <li class="dropdown pull-right">            
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <i class="icon-circle"></i> Add Items <b class="caret"></b>              
+          </a>
+          
+          <!-- Dropdown menu -->
+          <ul class="dropdown-menu">
+            <li><%= link_to "New Record", new_record_path %></li>
+            <li><%= link_to "New Company", new_client_path %></li>
+            <li><%= link_to "New User", new_user_path %></li>
+            <li><%= link_to "New Group", new_group_path %></li>
+            <li><%= link_to "New Course", new_course_path %></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- View Links -->
+      <ul class="nav navbar-nav pull-right">
+        <li class="dropdown pull-right">            
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <i class="icon-circle-blank"></i> View Items <b class="caret"></b>              
+          </a>
+          <!-- Dropdown menu -->
+          <ul class="dropdown-menu">
+            <li><%= link_to "Activity Report", records_path %></li>
+            <li><%= link_to "Status Report", status_report_index_path %></li>
+            <li><%= link_to "Company List", clients_path %></li>
+            <li><%= link_to "Groups List", groups_path %></li>
+            <li><%= link_to "Users List", users_path %></li>
+            <li><%= link_to "Course List", courses_path %></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- Admin Links -->
+      <ul class="nav navbar-nav pull-right">
+        <li class="dropdown pull-right">            
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <i class="icon-user"></i> Admin <b class="caret"></b>              
+          </a>
+          <!-- Dropdown menu -->
+          <ul class="dropdown-menu">
+            <li><a href="#"><i class="icon-user"></i> Profile</a></li>
+            <li><a href="#"><i class="icon-cogs"></i> Settings</a></li>
+            <li><a href="login.html"><i class="icon-off"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
