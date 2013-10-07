@@ -1,7 +1,5 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy]
-  helper_method :get_course_name
-  
 
   # GET /records
   # GET /records.json
@@ -17,11 +15,6 @@ class RecordsController < ApplicationController
       else
         @records = Record.page(params[:page]).per_page(10)
       end
-  end
-
-  def get_course_name(course_id)
-  @course = Course.find(course_id)
-  @course.name
   end
 
   # GET /records/1

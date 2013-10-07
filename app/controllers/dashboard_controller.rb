@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-	helper_method :course_name
+	helper_method :course_name, :course_min_score
 
 	def index
 		@three_month_report = Record.where("pass = ? AND requal_date < ? AND requal_date > ?", true, Date.today + 3.months, Date.today + 2.months).page(params[:page]).per_page(10)
@@ -12,4 +12,5 @@ class DashboardController < ApplicationController
 		c = Course.find(course_id)
 		@course_name = c.name
 	end
+
 end

@@ -22,7 +22,7 @@
             <td><%= record.user.client.name %></td>
             <td><%= record.user.group.name %></td>
             <td><%= get_course_name(record.course_id) %></td>
-            <% if record.pass == true && record.requal_date > Date.today %>
+            <% if record.pass == true && record.requal_date > Date.today && record.score >= get_course_min_score(record.course_id) %>
               <td style="background-color: LightGreen; color:#202020;"><b>Qualified</b></td>
             <% else %>
               <td style="background-color: LightCoral;color: white;"><b>Not Qualified</b></td>

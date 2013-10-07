@@ -28,6 +28,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
+        group = Group.create(name: "Default", client_id: @client.id)
         format.html { redirect_to @client, notice: 'Client was successfully created.' }
         format.json { render action: 'show', status: :created, location: @client }
       else

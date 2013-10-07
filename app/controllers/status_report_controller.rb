@@ -1,5 +1,5 @@
 class StatusReportController < ApplicationController
-	helper_method :get_course_name
+	helper_method :get_course_name, :get_course_min_score
 
 	def index
 	    #raise  params.inspect
@@ -15,9 +15,14 @@ class StatusReportController < ApplicationController
       end
 	end
 
-	def get_course_name(course_id)
-		@course = Course.find(course_id)
-		@course.name
-	end
+  def get_course_name(course_id)
+    @get_course_name = Course.find(course_id)
+    @get_course_name = @get_course_name.name
+  end
+
+  def get_course_min_score(course_id)
+    @get_course_min_score = Course.find(course_id)
+    @get_course_min_score = @get_course_min_score.min_score
+  end
 	
 end
